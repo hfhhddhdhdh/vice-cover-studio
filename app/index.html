@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA 6-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header>
+      <h1>VICE COVER<br>STUDIO</h1>
+      <p>Your photo + a caption, turned into GTA 6-style multi-panel cover art. 100% offline — photos never leave your machine.</p>
+    </header>
+
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <div class="slots" id="slots"></div>
+      <div class="row">
+        <label class="filebtn">Add photos
+          <input id="addPhotos" type="file" accept="image/*" multiple hidden>
+        </label>
+        <button id="loadSamples" type="button">Load samples</button>
+      </div>
+      <label class="check"><input id="fillAll" type="checkbox" checked> One photo in every panel</label>
+      <p class="hint">Click a panel in the preview to select it, drag to move its photo, scroll to zoom.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout &amp; grade</legend>
+      <div class="seg" id="layoutSeg" role="group" aria-label="Panel layout">
+        <button type="button" data-layout="quad" class="on">Quad</button>
+        <button type="button" data-layout="hero">Hero</button>
+        <button type="button" data-layout="split">Split</button>
+        <button type="button" data-layout="solo">Solo</button>
+      </div>
+      <div class="seg" id="gradeSeg" role="group" aria-label="Colour grade">
+        <button type="button" data-grade="sunset" class="on">Sunset</button>
+        <button type="button" data-grade="neon">Neon</button>
+        <button type="button" data-grade="gold">Gold</button>
+        <button type="button" data-grade="midnight">Midnight</button>
+        <button type="button" data-grade="noir">Noir</button>
+      </div>
+      <label>Selected panel
+        <span class="row">
+          <input id="zoom" type="range" min="1" max="2.5" step="0.01" value="1" aria-label="Zoom the selected panel">
+          <span id="zoomVal">1.00×</span>
+        </span>
+      </label>
+      <div class="row">
+        <label class="check"><input id="sun" type="checkbox" checked> Skyline</label>
+        <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+        <label class="check"><input id="grain" type="checkbox" checked> Grain</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Lettering</legend>
+      <label>Title <input id="title" type="text" maxlength="48" value="Sunset Heist"></label>
+      <label>Tagline <input id="tagline" type="text" maxlength="48" value="A Vice City Story"></label>
+      <div class="row">
+        <label>Style
+          <select id="titleStyle">
+            <option value="gradient" selected>Sunset gradient</option>
+            <option value="block">Bold white</option>
+            <option value="outline">Outline</option>
+            <option value="neon">Neon glow</option>
+          </select>
+        </label>
+        <label>Position
+          <select id="titlePos">
+            <option value="bottom" selected>Bottom</option>
+            <option value="top">Top</option>
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Export</legend>
+      <label>Size
+        <select id="exportSize">
+          <option value="1920x1080" selected>1920 × 1080 — wide post</option>
+          <option value="1080x1080">1080 × 1080 — square post</option>
+          <option value="1080x1350">1080 × 1350 — portrait post</option>
+        </select>
+      </label>
+      <button id="export" type="button" class="primary">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+
+    <footer>Original artwork made in your browser. Not affiliated with Rockstar Games; no logos, art or fonts from any game are used.</footer>
+  </section>
+
+  <section class="stage" aria-label="Live preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="Live cover preview"></canvas>
+    <p class="stagehint">Live preview — what you see is the PNG you export.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

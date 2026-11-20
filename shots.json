@@ -1,0 +1,26 @@
+[
+ {
+  "h": 1080,
+  "name": "1-cover.jpg",
+  "query": "?shot=cover&photo=pier&caption=Sunset%20Heist&layout=quad&grade=sunset&size=1920x1080",
+  "w": 1920
+ },
+ {
+  "h": 1150,
+  "name": "2-editor.jpg",
+  "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen&layout=hero&grade=neon&size=1920x1080",
+  "w": 1440
+ },
+ {
+  "h": 1350,
+  "name": "3-cover.jpg",
+  "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen&layout=hero&grade=neon&size=1080x1350",
+  "w": 1080
+ },
+ {
+  "h": 1080,
+  "name": "4-cover.jpg",
+  "query": "?shot=cover&photo=neon&photo2=pier&caption=Neon%20Nights&layout=split&grade=midnight&size=1080x1080",
+  "w": 1080
+ }
+]
